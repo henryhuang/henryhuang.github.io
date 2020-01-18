@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="WebJars使用示例">
+
+
+
+
+  <meta name="keywords" content="java,css,javascript,webjars,">
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="黄奕杰">
+    
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="https://huangyijie.com/2016/04/07/webjars-usage-sample/">
+
+
+<meta name="description" content="说明这里只介绍Servlet3如何使用WebJars（Classic风格），文章中示例源码地址在https://github.com/henryhuang/webjars-example。 代码编写Servlet类首先配置一个Servlet： 12345678910111213141516171819202122232425262728293031323334public class Servle">
+<meta name="keywords" content="java,css,javascript,webjars">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebJars使用示例">
+<meta property="og:url" content="https://huangyijie.com/2016/04/07/webjars-usage-sample/index.html">
+<meta property="og:site_name" content="黄奕杰">
+<meta property="og:description" content="说明这里只介绍Servlet3如何使用WebJars（Classic风格），文章中示例源码地址在https://github.com/henryhuang/webjars-example。 代码编写Servlet类首先配置一个Servlet： 12345678910111213141516171819202122232425262728293031323334public class Servle">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://77fkdd.com1.z0.glb.clouddn.com/image%2Fpng%2Fwebjars-lib-tree.png">
+<meta property="og:updated_time" content="2020-01-18T16:44:35.511Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WebJars使用示例">
+<meta name="twitter:description" content="说明这里只介绍Servlet3如何使用WebJars（Classic风格），文章中示例源码地址在https://github.com/henryhuang/webjars-example。 代码编写Servlet类首先配置一个Servlet： 12345678910111213141516171819202122232425262728293031323334public class Servle">
+<meta name="twitter:image" content="http://77fkdd.com1.z0.glb.clouddn.com/image%2Fpng%2Fwebjars-lib-tree.png">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+    
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?524bedb21e296866766ab3e99e967178";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-3638540744166958",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/search.css?v=1.1">
+
+
+
+    <title> WebJars使用示例 - 黄奕杰 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">黄奕杰</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="https://unsplash.com/@henryhh">
+                            
+                            
+                                Unsplash
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                
+                    <li class="menu-item">
+                        <a id="search" href>Search</a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          WebJars使用示例
+        
+      </h1>
+
+      <time class="post-time">
+          Apr 7 2016
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这里只介绍Servlet3如何使用WebJars（Classic风格），文章中示例源码地址在<a href="http://https://github.com/henryhuang/webjars-example" target="_blank" rel="noopener">https://github.com/henryhuang/webjars-example</a>。</p>
+<h2 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h2><h3 id="Servlet类"><a href="#Servlet类" class="headerlink" title="Servlet类"></a>Servlet类</h3><p>首先配置一个Servlet：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletSample</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = -<span class="number">5041101055869552308L</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		doPost(req, resp);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">try</span>(PrintWriter printWriter = resp.getWriter()) &#123;</span><br><span class="line">			printHTML(printWriter, <span class="string">"&lt;script type='javascript' src='webjars/jquery/3.0.0-alpha1/jquery.js'&gt;&lt;/script&gt;"</span>, <span class="string">"OK"</span>);</span><br><span class="line">			printWriter.flush();</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printHTML</span><span class="params">(PrintWriter printWriter, String headContent, String bodyContent)</span> </span>&#123;</span><br><span class="line">		printWriter.print(<span class="string">"&lt;html&gt;"</span>);</span><br><span class="line">		printWriter.print(<span class="string">"&lt;head&gt;"</span>);</span><br><span class="line">		printWriter.print(headContent);</span><br><span class="line">		printWriter.print(<span class="string">"&lt;/head&gt;"</span>);</span><br><span class="line">		printWriter.print(<span class="string">"&lt;body&gt;"</span>);</span><br><span class="line">		printWriter.print(bodyContent);</span><br><span class="line">		printWriter.print(<span class="string">"&lt;/body&gt;"</span>);</span><br><span class="line">		printWriter.print(<span class="string">"&lt;/html&gt;"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注意 <strong>cnhalo.ServletSample#doPost</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">printHTML(printWriter, <span class="string">"&lt;script type='javascript' src='webjars/jquery/3.0.0-alpha1/jquery.js'&gt;&lt;/script&gt;"</span>, <span class="string">"OK"</span>);</span><br></pre></td></tr></table></figure>
+<p><strong>“webjars/jquery/3.0.0-alpha1/jquery.js”</strong> 是根据jquery的WebJars包里<strong>META-INF/resources</strong>下的路径写的：</p>
+<p><img src="http://77fkdd.com1.z0.glb.clouddn.com/image%2Fpng%2Fwebjars-lib-tree.png" alt="文件结构"></p>
+<h3 id="web-xml"><a href="#web-xml" class="headerlink" title="web.xml"></a>web.xml</h3><p>web.xml 里的内容为：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>webjars<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>cnhalo.ServletSample<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>webjars<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/webjars<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><h3 id="自己打包"><a href="#自己打包" class="headerlink" title="自己打包"></a>自己打包</h3><p>示例项目使用Gradle进行构建，需要配置Gradle的环境，然后依次执行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> http://https://github.com/henryhuang/webjars-example</span><br><span class="line"><span class="built_in">cd</span> webjars-example</span><br><span class="line">gradle war // 生成war包</span><br></pre></td></tr></table></figure>
+<p>gradle会打出war包，进入项目的 build/libs/ 下面，看到 <strong>webjars-1.0.war</strong> 即是，将war包放入tomcat下运行即可。</p>
+<p><strong>注意，代码使用了jdk8。</strong></p>
+<h3 id="使用发布包"><a href="#使用发布包" class="headerlink" title="使用发布包"></a>使用发布包</h3><p>如果不想使用gradle打包，可以使用我已经打好的包<a href="https://github.com/henryhuang/webjars-example/releases/download/1.0/webjars-1.0.war" target="_blank" rel="noopener">webjars-1.0.war</a>。</p>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>启动tomcat，访问 <strong><a href="http://localhost:8080/webjars-1.0/webjars" target="_blank" rel="noopener">http://localhost:8080/webjars-1.0/webjars</a></strong>，界面显示 <strong>OK</strong>，查看页面源码（使用FireFox，鼠标右键，查看页面源代码，其它浏览器类似）：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">'javascript'</span> <span class="attr">src</span>=<span class="string">'webjars/jquery/3.0.0-alpha1/jquery.js'</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    OK</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>点击 <em>webjars/jquery/3.0.0-alpha1/jquery.js</em> ，可显示 jquery的源码信息，则使用成功！</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/java/">java</a>
+          
+            <a href="/tags/css/">css</a>
+          
+            <a href="/tags/javascript/">javascript</a>
+          
+            <a href="/tags/webjars/">webjars</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2016/05/12/booklist/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">书单</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2016/04/04/webjars-introduction/">
+        <span class="next-text nav-default">WebJars介绍</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+    <div style="text-align:center;">
+        <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
+    </div>
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2012 -
+    
+    2020
+    <span class="footer-author">Henry Huang.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/henryhuang/hexo-theme-polarbearsimple">Polar Bear Simple</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+    <div id="search-container" class="search-container">
+        <input type="hidden" id="algolia_index" value="prod_huangyijie.com">
+        <input type="hidden" id="algolia_app_id" value="TLM40E1NV5">
+        <input type="hidden" id="algolia_token" value="604ab1f18246ada1be6c522be2151fb2">
+        <div class="section">
+            <div class="container">
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        Search
+                        <a id="close" href style="float: right; color: #363636;">
+                            <i class="fas fa-times-circle" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="panel-block">
+                        <div id="searchContainer" class="control has-icons-left">
+                            <input id="searchField" class="input" type="text" placeholder="Enter anything...">
+                            <span class="icon is-small is-left">
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </span>
+                        </div>
+                    </div>
+                    <div id="result">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+<script type="text/javascript">
+  var disqus_shortname = 'huangyijie';
+  var disqus_identifier = '2016/04/07/webjars-usage-sample/';
+
+  var disqus_title = "WebJars使用示例";
+
+
+  var disqus = {
+    load : function disqus(){
+        if(typeof DISQUS !== 'object') {
+          (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+          }());
+          $('#load-disqus').remove(); ///加载后移除按钮
+        }
+    }
+  }
+
+  
+    var disqus_config = function () {
+        this.page.url = disqus_url;
+        this.page.identifier = disqus_identifier;
+        this.page.title = disqus_title;
+    };
+  
+
+</script>
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+    
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/javascript" src="/js/src/search.js"></script>
+
+
+  
+  <script type="application/ld+json">
+  {
+  "@context": "http://www.schema.org",
+  "@type": "Person",
+  "@id": "https://huangyijie.com/about/",
+  "name": "黄奕杰",
+  "alternateName": "Henry Huang",
+  "nationality": "中国",
+  "birthPlace" : {
+    "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+      "addressLocality": "汕头市",
+      "addressRegion": "广东省",
+          "addressCountry": "中国"
+    }
+  },
+  "gender": "Male",
+  "Description": "Software Engineer",
+  "disambiguatingDescription": "Full stack software engineer, focus on Java and JavaScript.",
+  "jobTitle": "Software Engineer",
+  "url": "https://huangyijie.com",
+  "image": "https://s.gravatar.com/avatar/4e0e61fdf1b2bcfb4ee31da27601fe6b?s=512&r=g",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "深圳市",
+    "addressRegion": "广东省",
+    "addressCountry": "中国"
+  },
+  "sameAs": [
+    "http://weibo.com/626242034",
+    "https://github.com/henryhuang",
+    "https://unsplash.com/@henryhh"
+    ]
+  }
+  </script>
+  </body>
+</html>

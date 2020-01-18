@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="99乘法表">
+
+
+
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="黄奕杰">
+    
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="https://huangyijie.com/40/table.html">
+
+
+<meta name="description" content="返回 首先，两个循环，就能打出一个矩形： 代码: 1234567891011121314151617public class Table &amp;#123;    public static void main(String[] args) &amp;#123;                System.out.println(&amp;quot;==============================99乘法表">
+<meta property="og:type" content="website">
+<meta property="og:title" content="99乘法表">
+<meta property="og:url" content="https://huangyijie.com/40/table.html">
+<meta property="og:site_name" content="黄奕杰">
+<meta property="og:description" content="返回 首先，两个循环，就能打出一个矩形： 代码: 1234567891011121314151617public class Table &amp;#123;    public static void main(String[] args) &amp;#123;                System.out.println(&amp;quot;==============================99乘法表">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-18T16:44:35.507Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="99乘法表">
+<meta name="twitter:description" content="返回 首先，两个循环，就能打出一个矩形： 代码: 1234567891011121314151617public class Table &amp;#123;    public static void main(String[] args) &amp;#123;                System.out.println(&amp;quot;==============================99乘法表">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+    
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?524bedb21e296866766ab3e99e967178";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-3638540744166958",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/search.css?v=1.1">
+
+
+
+    <title> 99乘法表 - 黄奕杰 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">黄奕杰</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="https://unsplash.com/@henryhh">
+                            
+                            
+                                Unsplash
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                
+                    <li class="menu-item">
+                        <a id="search" href>Search</a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        <article class="post">
+            <header class="post-header">
+                <h1 class="post-title">
+                    99乘法表
+                </h1>
+            </header>
+            <div class="post-content">
+                <p><a href="index.html">返回</a></p>
+<p>首先，两个循环，就能打出一个矩形：</p>
+<p>代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">public class Table &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(&quot;==============================99乘法表开始==============================&quot;);</span><br><span class="line">        for(int i = 1; i &lt; 10; i++) &#123;</span><br><span class="line">            for(int j = 1; j &lt; 10; j++) &#123;</span><br><span class="line">                String output = j + &quot;X&quot; + i + &quot;=&quot; + ( i * j) + &quot;  &quot;;</span><br><span class="line">                System.out.print(output);</span><br><span class="line">            &#125;</span><br><span class="line">            // 这里是为了换行</span><br><span class="line">            System.out.println(&quot;&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;==============================99乘法表结束==============================&quot;);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">==============================99乘法表开始==============================</span><br><span class="line">1X1=1  2X1=2  3X1=3  4X1=4  5X1=5  6X1=6  7X1=7  8X1=8  9X1=9  </span><br><span class="line">1X2=2  2X2=4  3X2=6  4X2=8  5X2=10  6X2=12  7X2=14  8X2=16  9X2=18  </span><br><span class="line">1X3=3  2X3=6  3X3=9  4X3=12  5X3=15  6X3=18  7X3=21  8X3=24  9X3=27  </span><br><span class="line">1X4=4  2X4=8  3X4=12  4X4=16  5X4=20  6X4=24  7X4=28  8X4=32  9X4=36  </span><br><span class="line">1X5=5  2X5=10  3X5=15  4X5=20  5X5=25  6X5=30  7X5=35  8X5=40  9X5=45  </span><br><span class="line">1X6=6  2X6=12  3X6=18  4X6=24  5X6=30  6X6=36  7X6=42  8X6=48  9X6=54  </span><br><span class="line">1X7=7  2X7=14  3X7=21  4X7=28  5X7=35  6X7=42  7X7=49  8X7=56  9X7=63  </span><br><span class="line">1X8=8  2X8=16  3X8=24  4X8=32  5X8=40  6X8=48  7X8=56  8X8=64  9X8=72  </span><br><span class="line">1X9=9  2X9=18  3X9=27  4X9=36  5X9=45  6X9=54  7X9=63  8X9=72  9X9=81  </span><br><span class="line">==============================99乘法表结束==============================</span><br></pre></td></tr></table></figure>
+<p>但是矩形肯定是不对的，多打印出来了一一半，观察一下，<strong><em>乘数不应该比被乘数大，那么就在乘数等于被乘数</em></strong>的时候，就不再打印之后的了，代码里只要在第二个循环里面的开始前，加入判断<strong><em>如果乘数小于等于被乘数，则打印</em></strong></p>
+<p>代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class Table &#123;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        </span><br><span class="line">        System.out.println(&quot;==============================99乘法表开始==============================&quot;);</span><br><span class="line">        for(int i = 1; i &lt; 10; i++) &#123;</span><br><span class="line">            for(int j = 1; j &lt; 10; j++) &#123;</span><br><span class="line">                // 这句判断</span><br><span class="line">                if(j &lt;= i) &#123;</span><br><span class="line">                    String output = j + &quot;X&quot; + i + &quot;=&quot; + ( i * j) + &quot;  &quot;;</span><br><span class="line">                    System.out.print(output);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            // 这里是为了换行</span><br><span class="line">            System.out.println(&quot;&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;==============================99乘法表结束==============================&quot;);</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">==============================99乘法表开始==============================</span><br><span class="line">1X1=1  </span><br><span class="line">1X2=2  2X2=4  </span><br><span class="line">1X3=3  2X3=6  3X3=9  </span><br><span class="line">1X4=4  2X4=8  3X4=12  4X4=16  </span><br><span class="line">1X5=5  2X5=10  3X5=15  4X5=20  5X5=25  </span><br><span class="line">1X6=6  2X6=12  3X6=18  4X6=24  5X6=30  6X6=36  </span><br><span class="line">1X7=7  2X7=14  3X7=21  4X7=28  5X7=35  6X7=42  7X7=49  </span><br><span class="line">1X8=8  2X8=16  3X8=24  4X8=32  5X8=40  6X8=48  7X8=56  8X8=64  </span><br><span class="line">1X9=9  2X9=18  3X9=27  4X9=36  5X9=45  6X9=54  7X9=63  8X9=72  9X9=81  </span><br><span class="line">==============================99乘法表结束==============================</span><br></pre></td></tr></table></figure>
+<p>还有一种把for换成 <strong><em>递归</em></strong> 的方法，要看懂这个，你得熟悉 java 的 “方法“， “递归”的概念，东西先放在这里，以后你可以看看，先看看代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">public class Table &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line"></span><br><span class="line">		System.out.println(&quot;==============================99乘法表开始==============================&quot;);</span><br><span class="line">		// 打印 i </span><br><span class="line">		printI(1);</span><br><span class="line">		System.out.println(&quot;==============================99乘法表结束==============================&quot;);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void printI(int i) &#123;</span><br><span class="line">		if (i &gt;= 10) &#123;</span><br><span class="line">			// 递归出口，意思是结束递归</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		// 打印 j</span><br><span class="line">		printJ(i, 1);</span><br><span class="line">		// 换行</span><br><span class="line">		System.out.println(&quot;&quot;);</span><br><span class="line">		</span><br><span class="line">		i++;</span><br><span class="line">		// 继续打印 i</span><br><span class="line">		printI(i);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	private static void printJ(int i, int j) &#123;</span><br><span class="line">		if(j &gt;= 10) &#123;</span><br><span class="line">			// 递归出口，意思是结束递归</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">		String output = j + &quot;X&quot; + i + &quot;=&quot; + (i * j) + &quot;  &quot;;</span><br><span class="line">		System.out.print(output);</span><br><span class="line">		if (j &gt;= i) &#123;</span><br><span class="line">			// 乘数大于被乘数，则返回，不继续打印</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		j++;</span><br><span class="line">		// 继续打印 j</span><br><span class="line">		printJ(i, j);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>递归的概念：</p>
+<blockquote>
+<p>程序调用自身的编程技巧称为递归（ recursion）</p>
+</blockquote>
+
+            </div>
+        </article>
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2012 -
+    
+    2020
+    <span class="footer-author">Henry Huang.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/henryhuang/hexo-theme-polarbearsimple">Polar Bear Simple</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+    <div id="search-container" class="search-container">
+        <input type="hidden" id="algolia_index" value="prod_huangyijie.com">
+        <input type="hidden" id="algolia_app_id" value="TLM40E1NV5">
+        <input type="hidden" id="algolia_token" value="604ab1f18246ada1be6c522be2151fb2">
+        <div class="section">
+            <div class="container">
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        Search
+                        <a id="close" href style="float: right; color: #363636;">
+                            <i class="fas fa-times-circle" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="panel-block">
+                        <div id="searchContainer" class="control has-icons-left">
+                            <input id="searchField" class="input" type="text" placeholder="Enter anything...">
+                            <span class="icon is-small is-left">
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </span>
+                        </div>
+                    </div>
+                    <div id="result">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+<script type="text/javascript">
+  var disqus_shortname = 'huangyijie';
+  var disqus_identifier = '40/table.html';
+
+  var disqus_title = "99乘法表";
+
+
+  var disqus = {
+    load : function disqus(){
+        if(typeof DISQUS !== 'object') {
+          (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+          }());
+          $('#load-disqus').remove(); ///加载后移除按钮
+        }
+    }
+  }
+
+  
+    var disqus_config = function () {
+        this.page.url = disqus_url;
+        this.page.identifier = disqus_identifier;
+        this.page.title = disqus_title;
+    };
+  
+
+</script>
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+    
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/javascript" src="/js/src/search.js"></script>
+
+
+  
+  <script type="application/ld+json">
+  {
+  "@context": "http://www.schema.org",
+  "@type": "Person",
+  "@id": "https://huangyijie.com/about/",
+  "name": "黄奕杰",
+  "alternateName": "Henry Huang",
+  "nationality": "中国",
+  "birthPlace" : {
+    "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+      "addressLocality": "汕头市",
+      "addressRegion": "广东省",
+          "addressCountry": "中国"
+    }
+  },
+  "gender": "Male",
+  "Description": "Software Engineer",
+  "disambiguatingDescription": "Full stack software engineer, focus on Java and JavaScript.",
+  "jobTitle": "Software Engineer",
+  "url": "https://huangyijie.com",
+  "image": "https://s.gravatar.com/avatar/4e0e61fdf1b2bcfb4ee31da27601fe6b?s=512&r=g",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "深圳市",
+    "addressRegion": "广东省",
+    "addressCountry": "中国"
+  },
+  "sameAs": [
+    "http://weibo.com/626242034",
+    "https://github.com/henryhuang",
+    "https://unsplash.com/@henryhh"
+    ]
+  }
+  </script>
+  </body>
+</html>

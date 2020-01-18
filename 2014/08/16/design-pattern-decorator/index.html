@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="description" content="设计模式学习笔记油漆工模式">
+
+
+
+
+  <meta name="keywords" content="设计模式,油漆工,decorator,">
+
+
+
+
+
+    <link rel="alternate" href="/atom.xml" title="黄奕杰">
+    
+
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=1.1">
+
+
+
+<link rel="canonical" href="https://huangyijie.com/2014/08/16/design-pattern-decorator/">
+
+
+<meta name="description" content="设计模式之Decorator(油漆工)查看 代码 装饰模式:Decorator常被翻译成”装饰”,我觉得翻译成”油漆工”更形象点,油漆工(decorator)是用来刷油漆的,那么被刷油漆的对象我们称decoratee.这两种实体在Decorator模式中是必须的. Decorator定义:动态给一个对象添加一些额外的职责,就象在墙上刷油漆.使用Decorator模式相比用生成子类方式达到功能的扩充">
+<meta name="keywords" content="设计模式,油漆工,decorator">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式学习笔记油漆工模式">
+<meta property="og:url" content="https://huangyijie.com/2014/08/16/design-pattern-decorator/index.html">
+<meta property="og:site_name" content="黄奕杰">
+<meta property="og:description" content="设计模式之Decorator(油漆工)查看 代码 装饰模式:Decorator常被翻译成”装饰”,我觉得翻译成”油漆工”更形象点,油漆工(decorator)是用来刷油漆的,那么被刷油漆的对象我们称decoratee.这两种实体在Decorator模式中是必须的. Decorator定义:动态给一个对象添加一些额外的职责,就象在墙上刷油漆.使用Decorator模式相比用生成子类方式达到功能的扩充">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2020-01-18T16:44:35.511Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式学习笔记油漆工模式">
+<meta name="twitter:description" content="设计模式之Decorator(油漆工)查看 代码 装饰模式:Decorator常被翻译成”装饰”,我觉得翻译成”油漆工”更形象点,油漆工(decorator)是用来刷油漆的,那么被刷油漆的对象我们称decoratee.这两种实体在Decorator模式中是必须的. Decorator定义:动态给一个对象添加一些额外的职责,就象在墙上刷油漆.使用Decorator模式相比用生成子类方式达到功能的扩充">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=1.1">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript">
+  var themeConfig = {
+    fancybox: {
+      enable: false
+    },
+  };
+</script>
+
+
+
+
+    
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?524bedb21e296866766ab3e99e967178";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+    
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-3638540744166958",
+        enable_page_level_ads: true
+      });
+    </script>
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="/css/search.css?v=1.1">
+
+
+
+    <title> 设计模式学习笔记油漆工模式 - 黄奕杰 </title>
+  </head>
+
+  <body>
+    <div id="page">
+      <header id="masthead"><div class="site-header-inner">
+    <h1 class="site-title">
+        <a href="/." class="logo">黄奕杰</a>
+    </h1>
+
+    <nav id="nav-top">
+        
+            <ul id="menu-top" class="nav-top-items">
+                
+                    <li class="menu-item">
+                        <a href="https://unsplash.com/@henryhh">
+                            
+                            
+                                Unsplash
+                            
+                        </a>
+                    </li>
+                
+                    <li class="menu-item">
+                        <a href="/about">
+                            
+                            
+                                About
+                            
+                        </a>
+                    </li>
+                
+                
+                    <li class="menu-item">
+                        <a id="search" href>Search</a>
+                    </li>
+                
+            </ul>
+        
+    </nav>
+
+</div>
+
+      </header>
+      <div id="content">
+        
+    <div id="primary">
+        
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          设计模式学习笔记油漆工模式
+        
+      </h1>
+
+      <time class="post-time">
+          Aug 16 2014
+      </time>
+    </header>
+
+
+
+    
+            <div class="post-content">
+            <h1 id="设计模式之Decorator-油漆工"><a href="#设计模式之Decorator-油漆工" class="headerlink" title="设计模式之Decorator(油漆工)"></a>设计模式之Decorator(油漆工)</h1><p>查看 <a href="https://github.com/henryhuang/designpatterns/tree/master/src/cnhalo/twoa/designpatterns/structure/decorator" target="_blank" rel="noopener">代码</a></p>
+<p>装饰模式:Decorator常被翻译成”装饰”,我觉得翻译成”油漆工”更形象点,油漆工(decorator)是用来刷油漆的,那么被刷油漆的对象我们称decoratee.这两种实体在Decorator模式中是必须的.</p>
+<h3 id="Decorator定义"><a href="#Decorator定义" class="headerlink" title="Decorator定义:"></a>Decorator定义:</h3><p>动态给一个对象添加一些额外的职责,就象在墙上刷油漆.使用Decorator模式相比用生成子类方式达到功能的扩充显得更为灵活.</p>
+<a id="more"></a>
+<h3 id="为什么使用Decorator"><a href="#为什么使用Decorator" class="headerlink" title="为什么使用Decorator?"></a>为什么使用Decorator?</h3><p>我们通常可以使用继承来实现功能的拓展,如果这些需要拓展的功能的种类很繁多,那么势必生成很多子类,增加系统的复杂性,同时,使用继承实现功能拓展,我们必须可预见这些拓展功能,这些功能是编译时就确定了,是静态的.<br>使用Decorator的理由是:这些功能需要由用户动态决定加入的方式和时机.Decorator提供了”即插即用”的方法,在运行期间决定何时增加何种功能.</p>
+<h3 id="如何使用"><a href="#如何使用" class="headerlink" title="如何使用?"></a>如何使用?</h3><p>举Adapter中的打桩示例,在Adapter中有两种类:方形桩 圆形桩,Adapter模式展示如何综合使用这两个类,在Decorator模式中,我们是要在打桩时增加一些额外功能,比如,挖坑 在桩上钉木板等,不关心如何使用两个不相关的类.</p>
+<p>我们先建立一个接口: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *</span><br><span class="line"> *</span><br><span class="line"> * @author	HuangYijie</span><br><span class="line"> * @date	2014年8月6日 下午1:42:20</span><br><span class="line"> * </span><br><span class="line"> */</span><br><span class="line">public interface Work &#123;</span><br><span class="line"></span><br><span class="line">	public void insert();</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接口Work有一个具体实现:插入方形桩或圆形桩,这两个区别对Decorator是无所谓.我们以插入方形桩为例:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *</span><br><span class="line"> *</span><br><span class="line"> * @author	HuangYijie</span><br><span class="line"> * @date	2014年8月6日 下午1:42:34</span><br><span class="line"> * </span><br><span class="line"> */</span><br><span class="line">public class SquarePeg implements Work &#123;</span><br><span class="line"></span><br><span class="line">	@Override</span><br><span class="line">	public void insert() &#123;</span><br><span class="line">		System.out.println(&quot;方形桩插入&quot;);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在有一个应用:需要在桩打入前,挖坑,在打入后,在桩上钉木板,这些额外的功能是动态,可能随意增加调整修改,比如,可能又需要在打桩之后钉架子(只是比喻).</p>
+<p>那么我们使用Decorator模式,这里方形桩SquarePeg是decoratee(被刷油漆者),我们需要在decoratee上刷些”油漆”,这些油漆就是那些额外的功能.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *</span><br><span class="line"> *</span><br><span class="line"> * @author	HuangYijie</span><br><span class="line"> * @date	2014年8月6日 下午1:42:47</span><br><span class="line"> * </span><br><span class="line"> */</span><br><span class="line">public class Decorator implements Work&#123;</span><br><span class="line">	</span><br><span class="line">	private Work work;</span><br><span class="line">	</span><br><span class="line">	// 额外增加的功能被打包在List中</span><br><span class="line">	private List&lt;String&gt; others = new ArrayList&lt;String&gt;();</span><br><span class="line">	</span><br><span class="line">	// 在构造器中使用组合new方式，引入Work对象</span><br><span class="line">	public Decorator(Work work) &#123;</span><br><span class="line">		this.work = work;</span><br><span class="line">		others.add(&quot;挖坑&quot;);</span><br><span class="line">		others.add(&quot;钉木板&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	@Override</span><br><span class="line">	public void insert() &#123;</span><br><span class="line">		newMethod();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	//在新方法中，在insert之前增加其他方法，这里次序先后由用户灵活指定</span><br><span class="line">	public void newMethod() &#123;</span><br><span class="line">		otherMethod();</span><br><span class="line">		work.insert();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public void otherMethod() &#123;</span><br><span class="line">		ListIterator&lt;String&gt; iterator = others.listIterator();</span><br><span class="line">		while (iterator.hasNext()) &#123;</span><br><span class="line">			System.out.println(iterator.next());</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在上例中,我们把挖坑和钉木板都排在了打桩insert前面,这里只是举例说明额外功能次序可以任意安排.</p>
+<p>好了,Decorator模式出来了,我们看如何调用: </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *</span><br><span class="line"> *</span><br><span class="line"> * @author	HuangYijie</span><br><span class="line"> * @date	2014年8月6日 下午2:21:25</span><br><span class="line"> * </span><br><span class="line"> */</span><br><span class="line">public class Main &#123;</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		</span><br><span class="line">		Work squrePeg = new SquarePeg();</span><br><span class="line">		Work decorator = new Decorator(squrePeg);</span><br><span class="line">		decorator.insert();</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Decorator模式至此完成.</p>
+<p>如果你细心,会发现,上面调用类似我们读取文件时的调用:</p>
+<p>FileReader fr = new FileReader(filename);<br>BufferedReader br = new BufferedReader(fr);</p>
+<p>实际上Java 的I/O API就是使用Decorator实现的,I/O变种很多,如果都采取继承方法,将会产生很多子类,显然相当繁琐.</p>
+<h3 id="Jive中的Decorator实现"><a href="#Jive中的Decorator实现" class="headerlink" title="Jive中的Decorator实现"></a>Jive中的Decorator实现</h3><p>在论坛系统中,有些特别的字是不能出现在论坛中如”打倒XXX”,我们需要过滤这些”反动”的字体.不让他们出现或者高亮度显示.</p>
+<p>在IBM Java专栏中专门谈Jive的文章中,有谈及Jive中ForumMessageFilter.java使用了Decorator模式,其实,该程序并没有真正使用Decorator,而是提示说:针对特别论坛可以设计额外增加的过滤功能,那么就可以重组ForumMessageFilter作为Decorator模式了.</p>
+<p>所以,我们在分辨是否真正是Decorator模式,以及会真正使用Decorator模式,一定要把握好Decorator模式的定义,以及其中参与的角色(Decoratee 和Decorator).</p>
+
+            </div>
+          
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/">设计模式</a>
+          
+            <a href="/tags/油漆工/">油漆工</a>
+          
+            <a href="/tags/decorator/">decorator</a>
+          
+        </div>
+
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2014/10/28/groovy-starting/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Groovy开始</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2014/05/18/running/">
+        <span class="next-text nav-default">跑步</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+        
+  <div class="comments" id="comments">
+    
+    <div style="text-align:center;">
+        <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
+    </div>
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+      </footer>
+    
+  </article>
+
+    </div>
+
+      </div>
+
+      <footer id="colophon"><span class="copyright-year">
+    
+        &copy;
+    
+        2012 -
+    
+    2020
+    <span class="footer-author">Henry Huang.</span>
+    <span class="power-by">
+        Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a> and <a class="theme-link" href="https://github.com/henryhuang/hexo-theme-polarbearsimple">Polar Bear Simple</a>
+    </span>
+</span>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+    
+    <div id="search-container" class="search-container">
+        <input type="hidden" id="algolia_index" value="prod_huangyijie.com">
+        <input type="hidden" id="algolia_app_id" value="TLM40E1NV5">
+        <input type="hidden" id="algolia_token" value="604ab1f18246ada1be6c522be2151fb2">
+        <div class="section">
+            <div class="container">
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        Search
+                        <a id="close" href style="float: right; color: #363636;">
+                            <i class="fas fa-times-circle" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                    <div class="panel-block">
+                        <div id="searchContainer" class="control has-icons-left">
+                            <input id="searchField" class="input" type="text" placeholder="Enter anything...">
+                            <span class="icon is-small is-left">
+            <i class="fas fa-search" aria-hidden="true"></i>
+          </span>
+                        </div>
+                    </div>
+                    <div id="result">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    
+
+<script type="text/javascript">
+  var disqus_shortname = 'huangyijie';
+  var disqus_identifier = '2014/08/16/design-pattern-decorator/';
+
+  var disqus_title = "设计模式学习笔记油漆工模式";
+
+
+  var disqus = {
+    load : function disqus(){
+        if(typeof DISQUS !== 'object') {
+          (function () {
+          var s = document.createElement('script'); s.async = true;
+          s.type = 'text/javascript';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+          }());
+          $('#load-disqus').remove(); ///加载后移除按钮
+        }
+    }
+  }
+
+  
+    var disqus_config = function () {
+        this.page.url = disqus_url;
+        this.page.identifier = disqus_identifier;
+        this.page.title = disqus_title;
+    };
+  
+
+</script>
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+
+    <script type="text/javascript" src="/js/src/theme.js?v=1.1"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=1.1"></script>
+
+    
+    <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script type="text/javascript" src="/js/src/search.js"></script>
+
+
+  
+  <script type="application/ld+json">
+  {
+  "@context": "http://www.schema.org",
+  "@type": "Person",
+  "@id": "https://huangyijie.com/about/",
+  "name": "黄奕杰",
+  "alternateName": "Henry Huang",
+  "nationality": "中国",
+  "birthPlace" : {
+    "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+      "addressLocality": "汕头市",
+      "addressRegion": "广东省",
+          "addressCountry": "中国"
+    }
+  },
+  "gender": "Male",
+  "Description": "Software Engineer",
+  "disambiguatingDescription": "Full stack software engineer, focus on Java and JavaScript.",
+  "jobTitle": "Software Engineer",
+  "url": "https://huangyijie.com",
+  "image": "https://s.gravatar.com/avatar/4e0e61fdf1b2bcfb4ee31da27601fe6b?s=512&r=g",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "深圳市",
+    "addressRegion": "广东省",
+    "addressCountry": "中国"
+  },
+  "sameAs": [
+    "http://weibo.com/626242034",
+    "https://github.com/henryhuang",
+    "https://unsplash.com/@henryhh"
+    ]
+  }
+  </script>
+  </body>
+</html>
